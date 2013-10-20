@@ -10,7 +10,8 @@ handlers:
   upload: favicon\.ico
 
 - url: .*
-  script: main.app
+  static_files: app/templates/app.html
+  upload: (.*)
 
 libraries:
 - name: webapp2
