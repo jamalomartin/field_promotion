@@ -27,13 +27,13 @@ module.exports = function(grunt) {
                     options: {
                         baseUrl:        "app/",
                         mainConfigFile: "app/main.js",
-                        out:            "app/built_app.js",
+                        out:            "built/app.js",
                         name:           "main",
                         paths:          {
                             requireLib: 'js/lib/require'
                         },
                         include:        'requireLib',
-                        optimize:       'uglify2',
+                        optimize:       'none',
                         generateSourceMaps: true,
                         preserveLicenseComments: false,
                         useSourceUrl: true
