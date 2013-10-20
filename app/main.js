@@ -33,7 +33,7 @@ if(typeof(console) === 'undefined'){
 /**
  * The entry point into our stuff.
  */
-requirejs(['angular', 'js/app'], function(domReady, angular, app){
+requirejs(['angular', 'js/app'], function(angular, app){
     "use strict";
     angular.bootstrap(document, ['FieldPromotion']);
 });

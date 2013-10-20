@@ -28514,7 +28514,7 @@ eval("\ndefine(\'js/services/services\',[\n    \'angular\'\n\n], function(\n    
 
 eval("\"use_strict\";\n\ndefine(\'js/directives/directives\',[\n    \'angular\'\n], function(\n    angular\n\n){\n    \"use strict\";\n    var directives = angular.module(\'directives\', []);\n\n    return directives;\n});\n\n//# sourceURL=/js/directives/directives.js");
 
-eval("define(\'js/app\',[\n    \'angular\',\n    \'js/controllers/controllers\',\n    \'js/filters/filters\',\n    \'js/services/services\',\n    \'js/directives/directives\'\n], function(angular){\n        \'use strict\';\n\n        var app =  angular.module(\'FieldPromotion\', [\'controllers\', \'services\', \'filters\', \'directives\']);\n\n        app.config([\'$routeProvider\', \'$locationProvider\', \'resourcePath\', function($routeProvider, $locationProvider, resourcePath){\n            $locationProvider.html5Mode(true);\n            $routeProvider.\n                when(\'/\', {templateUrl: resourcePath + \'templates/record_game.html\', controller: \'RecordGameController\'}).\n                when(\'/admin\', {templateUrl: resourcePath + \'templates/admin.html\', controller: \'AdminController\'}).\n                when(\'/record\', {templateUrl: resourcePath + \'templates/record_game.html\', controller: \'RecordGameController\'}).\n                when(\'/view\', {templateUrl: resourcePath + \'templates/view_game.html\', controller: \'GameResultsController\'});\n        }]);\n\n        return app;\n    }\n);\n\n//# sourceURL=/js/app.js");
+eval("define(\'js/app\',[\n    \'angular\',\n    \'js/controllers/controllers\',\n    \'js/filters/filters\',\n    \'js/services/services\',\n    \'js/directives/directives\'\n], function(angular){\n        \'use strict\';\n\n        var app =  angular.module(\'FieldPromotion\', [\'controllers\', \'services\', \'filters\', \'directives\']);\n        console.log(\'test\');\n        app.config([\'$routeProvider\', \'$locationProvider\', function($routeProvider, $locationProvider){\n            $locationProvider.html5Mode(true);\n            $routeProvider.\n                when(\'/\', {templateUrl: \'templates/record_game.html\', controller: \'RecordGameController\'}).\n                when(\'/admin\', {templateUrl: \'templates/admin.html\', controller: \'AdminController\'}).\n                when(\'/record\', {templateUrl: \'templates/record_game.html\', controller: \'RecordGameController\'}).\n                when(\'/view\', {templateUrl: \'templates/view_game.html\', controller: \'GameResultsController\'});\n        }]);\n\n        return app;\n    }\n);\n\n//# sourceURL=/js/app.js");
 
 requirejs.config({
     baseUrl:'./',
@@ -28551,7 +28551,7 @@ if(typeof(console) === 'undefined'){
 /**
  * The entry point into our stuff.
  */
-requirejs(['angular', 'js/app'], function(domReady, angular, app){
+requirejs(['angular', 'js/app'], function(angular, app){
     
     angular.bootstrap(document, ['FieldPromotion']);
 });

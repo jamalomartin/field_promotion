@@ -8,14 +8,14 @@ define([
         'use strict';
 
         var app =  angular.module('FieldPromotion', ['controllers', 'services', 'filters', 'directives']);
-
-        app.config(['$routeProvider', '$locationProvider', 'resourcePath', function($routeProvider, $locationProvider, resourcePath){
+        console.log('test');
+        app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
             $locationProvider.html5Mode(true);
             $routeProvider.
-                when('/', {templateUrl: resourcePath + 'templates/record_game.html', controller: 'RecordGameController'}).
-                when('/admin', {templateUrl: resourcePath + 'templates/admin.html', controller: 'AdminController'}).
-                when('/record', {templateUrl: resourcePath + 'templates/record_game.html', controller: 'RecordGameController'}).
-                when('/view', {templateUrl: resourcePath + 'templates/view_game.html', controller: 'GameResultsController'});
+                when('/', {templateUrl: 'templates/record_game.html', controller: 'RecordGameController'}).
+                when('/admin', {templateUrl: 'templates/admin.html', controller: 'AdminController'}).
+                when('/record', {templateUrl: 'templates/record_game.html', controller: 'RecordGameController'}).
+                when('/view', {templateUrl: 'templates/view_game.html', controller: 'GameResultsController'});
         }]);
 
         return app;
