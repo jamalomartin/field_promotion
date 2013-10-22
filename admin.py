@@ -17,14 +17,23 @@ class AdminHandler(webapp2.RequestHandler):
 			self.add_faction()
 		elif self.request.get('result'):
 			self.add_result()
+		elif self.request.get('caster'):
+			self.add_caster()
 
-	def populate_page(self, factions=None, results=None):
+	def populate_page(self, factions=None, results=None, casters=None):
 		if not factions:
 			factions = models.Faction.query().fetch(100)
 		if not results:
 			results = models.Result.query().fetch(100)
+		if not casters:
+			casters = models.Warcaster.query().fetch(200)
+		
+		# TODO this is a bad idea, but will work for now.  learn about KeyProperty
+		for caster in casters:
+			caster.factionName = caster.faction.get().name
+
 		template = jinja_environment.get_template('admin.html')
-		self.response.out.write(template.render(factions=factions, results=results))
+		self.response.out.write(template.render(factions=factions, results=results, casters=casters))
 
 	def add_faction(self):
 		factionName = self.request.get('factionName')
@@ -46,6 +55,20 @@ class AdminHandler(webapp2.RequestHandler):
 		results = models.Result.query().fetch(100)
 		results.append(result)
 		self.populate_page(results=results)
+
+	def add_caster(self):
+		casterName = self.request.get('casterName')
+		casterFaction = self.request.get('casterFaction')
+		matched_faction = None
+		factions = models.Faction.query().fetch(100)
+		for faction in factions:
+			if faction.name == casterFaction:
+				matched_faction = faction
+		caster = models.Warcaster(name=casterName, faction=matched_faction.key)
+		caster.put()
+		casters = models.Warcaster.query().fetch(200)
+		casters.append(caster)
+		self.populate_page(casters=casters)
 
 app = webapp2.WSGIApplication([
 	('/admin', AdminHandler)
