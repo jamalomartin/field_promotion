@@ -1,4 +1,11 @@
-.add_faction_table {
-	border:1px solid black;
-	text-align: center;
+.faction-admin {
+	position: relative;
+	left: 20px;
+	width: 75%;
+}
+
+.result-admin {
+	position: relative;
+	left: 20px;
+	width: 50%;
 }
