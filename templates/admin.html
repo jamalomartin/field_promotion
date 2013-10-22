@@ -10,22 +10,22 @@
         <h2>Faction Administration</h2>
         <table class="table table-striped">
           <tr>
-              <th width="45%">Faction Name</th>
-              <th width="45%">Faction Abbrev</th>
-              <th width="10%"></th>
+              <th>Faction Name</th>
+              <th>Faction Abbrev</th>
+              <th></th>
           </tr>
           {% for faction in factions %}
             <tr>
-              <th width="45%">{{faction.name}}</th>
-              <th width="45%">{{faction.abbrev}}</th>
-              <th width="10%"></th>
+              <th>{{faction.name}}</th>
+              <th>{{faction.abbrev}}</th>
+              <th></th>
             </tr>
           {% endfor %}
           <form method="post">
               <tr>
-                  <td width="45%"><input type="text" NAME="factionName" size="40"></td>
-                  <td width="45%"><input type="text" NAME="factionAbbrev" size="10"></td>
-                  <td width="10%"><input type="submit" name="faction" value="Add Faction" /></td>
+                  <td><input type="text" NAME="factionName" size="40"></td>
+                  <td><input type="text" NAME="factionAbbrev" size="10"></td>
+                  <td><input type="submit" name="faction" value="Add Faction" /></td>
               </tr>
           </form>
         </table>
@@ -35,22 +35,22 @@
         <h2>Result Administration</h2>
         <table class="table table-striped">
           <tr>
-              <th width="45%">Result Name</th>
-              <th width="45%">Victory?</th>
-              <th width="10%"></th>
+              <th>Result Name</th>
+              <th>Victory?</th>
+              <th></th>
           </tr>
           {% for result in results %}
             <tr>
-              <th width="45%">{{result.name}}</th>
-              <th width="45%">{{result.victory}}</th>
-              <th width="10%"></th>
+              <th>{{result.name}}</th>
+              <th>{{result.victory}}</th>
+              <th></th>
             </tr>
           {% endfor %}
           <form method="post">
               <tr>
-                  <td width="45%"><input type="text" name="resultName" size="40"></td>
-                  <td width="45%"><input type="checkbox" name="victory" value="true"> Victory?</td>
-                  <td width="10%"><input type="submit" name="result" value="Add Result" /></td>
+                  <td><input type="text" name="resultName" size="40"></td>
+                  <t><input type="checkbox" name="victory" value="true"> Victory?</td>
+                  <td><input type="submit" name="result" value="Add Result" /></td>
               </tr>
           </form>
         </table>
