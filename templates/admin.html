@@ -14,13 +14,6 @@
               <th>Faction Abbrev</th>
               <th></th>
           </tr>
-          {% for faction in factions %}
-            <tr>
-              <th>{{faction.name}}</th>
-              <th>{{faction.abbrev}}</th>
-              <th></th>
-            </tr>
-          {% endfor %}
           <form method="post">
               <tr>
                   <td><input type="text" NAME="factionName" size="40"></td>
@@ -28,6 +21,13 @@
                   <td><input type="submit" name="faction" value="Add Faction" /></td>
               </tr>
           </form>
+          {% for faction in factions %}
+            <tr>
+              <th>{{faction.name}}</th>
+              <th>{{faction.abbrev}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
         </table>
       </div>
 
@@ -39,13 +39,6 @@
               <th>Victory?</th>
               <th></th>
           </tr>
-          {% for result in results %}
-            <tr>
-              <th>{{result.name}}</th>
-              <th>{{result.victory}}</th>
-              <th></th>
-            </tr>
-          {% endfor %}
           <form method="post">
               <tr>
                   <td><input type="text" name="resultName" size="40"></td>
@@ -53,6 +46,44 @@
                   <td><input type="submit" name="result" value="Add Result" /></td>
               </tr>
           </form>
+          {% for result in results %}
+            <tr>
+              <th>{{result.name}}</th>
+              <th>{{result.victory}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="caster-admin">
+        <h2>Warcaster/Warlock Administration</h2>
+        <table class="table table-striped">
+          <tr>
+              <th>Warcaster Name</th>
+              <th>Faction</th>
+              <th></th>
+          </tr>
+          <form method="post">
+              <tr>
+                  <td><input type="text" name="casterName" size="40"></td>
+                  <td>
+                    <select name="casterFaction">
+                      {% for faction in factions %}
+                      <option value="{{faction.name}}">{{faction.name}}</option>
+                    {% endfor %}
+                    </select>
+                  </td>
+                  <td><input type="submit" name="caster" value="Add Caster" /></td>
+              </tr>
+          </form>
+          {% for caster in casters %}
+            <tr>
+              <th>{{caster.name}}</th>
+              <th>{{caster.factionName}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
         </table>
       </div>
     </body>
