@@ -6,7 +6,7 @@ class Faction(ndb.Model):
 
 class Warcaster(ndb.Model):
 	name = ndb.StringProperty()
-	faction = ndb.ReferenceProperty(Faction)
+	faction = ndb.KeyProperty(kind=Faction)
 
 class Result(ndb.Model):
 	name = ndb.StringProperty()
@@ -14,10 +14,10 @@ class Result(ndb.Model):
 class Match(ndb.Model):
 	date = ndb.DateProperty()
 	player_name = ndb.StringProperty()
-	player_faction = ndb.ReferenceProperty(Faction)
-	player_warcaster = ndb.ReferenceProperty(Warcaster)
+	player_faction = ndb.KeyProperty(kind=Faction)
+	player_warcaster = ndb.KeyProperty(kind=Warcaster)
 	opponent_name = ndb.StringProperty()
-	opponent_faction = ndb.ReferenceProperty(Faction)
-	opponent_warcaster = ndb.ReferenceProperty(Warcaster)
+	opponent_faction = ndb.KeyProperty(kind=Faction)
+	opponent_warcaster = ndb.KeyProperty(kind=Warcaster)
 	size = ndb.IntegerProperty()
-	result - ndb.ReferenceProperty(Result)
+	result = ndb.KeyProperty(kind=Result)
