@@ -1,9 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Field Promotion Game Record</title>
+      <title>Field Promotion Game Recording</title>
+      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
   </head>
     <body>
-       hello world to game record!
+      <div class="record-area">
+        <h2>Record Game Result</h2>
+        <table class="table table-striped">
+	        <form method="post">
+
+	        	  <tr>
+	        	  	<td>Game Date:</td> 
+	        	  	<td class="record-item"><input type="date" name="date"></td>
+	        	  </tr>
+
+	              <tr>
+	              	<td>Your Faction: 
+	              	<td class="record-item"><select name="userFaction">
+	              	{% for faction in factions %}
+	                <option value="{{faction.name}}">{{faction.name}}</option>
+	                {% endfor %}
+	              </select>
+	              </tr>
+
+	              <tr>
+	              	<td>Your Caster: </td> 
+	              	<td class="record-item"><select name="userCaster">
+	              	{% for caster in casters %}
+	                <option value="{{caster.name}}">{{caster.name}}</option>
+	                {% endfor %}
+	              </select></td> 
+	              </tr>
+
+	              
+	              <tr>
+	              	<td>Opponent Name:</td>
+	              	<td class="record-item"><input type="text" name="opponentName" size="40"></td> 
+	              <br>
+
+	              <tr>
+	              	<td>Opponent Faction: </td> 
+	              	<td class="record-item"><select name="opponentFaction">
+	              	{% for faction in factions %}
+	                <option value="{{faction.name}}">{{faction.name}}</option>
+	                {% endfor %}
+	              </select></td> 
+	              </tr>
+
+	              <tr>
+	              	<td>Opponent Caster: </td> 
+	              	<td class="record-item"><select name="opponentCaster">
+	              	{% for caster in casters %}
+	                <option value="{{caster.name}}">{{caster.name}}</option>
+	                {% endfor %}
+	              </select></td> 
+	              </tr>
+
+	              <tr>
+	              	<td>Point Level: </td> 
+	              	<td class="record-item"><input type="text" name="pointLevel" size="10"></td> 
+	              </tr>
+
+	              
+	              <tr>
+	              	<td>Result: </td> 
+	              	<td class="record-item"><select name="result">
+	              	{% for result in results %}
+	                <option value="{{result.name}}">{{result.name}}</option>
+	                {% endfor %}
+	              </select></td> 
+
+	              <tr>
+	              	<td>Submit: </td> 
+	              	<td class="record-item"><input type="submit" name="game" value="Submit Game" /></td>
+	          </tr>
+          </form>
+      	</table>
+      </div>
+
+      
     </body>
 </html>

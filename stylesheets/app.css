@@ -22,3 +22,7 @@
 	height: 600px;
 	overflow: scroll;
 }
+
+.record-area {
+	width: 50%;
+}
