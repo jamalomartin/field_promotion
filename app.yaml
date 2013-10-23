@@ -15,9 +15,11 @@ handlers:
 
 - url: /record
   script: record_game.app
+  login: required
 
 - url: /admin
   script: admin.app
+  login: admin
 
 - url: /*
   script: main.app
