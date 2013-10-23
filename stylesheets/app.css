@@ -1,3 +1,8 @@
+.header {
+	position: relative;
+	left: 20px;
+}
+
 .faction-admin {
 	position: relative;
 	left: 20px;
@@ -14,4 +19,6 @@
 	position: relative;
 	left: 20px;
 	width: 75%;
+	height: 600px;
+	overflow: scroll;
 }

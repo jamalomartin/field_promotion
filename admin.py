@@ -3,6 +3,7 @@ import webapp2
 import os
 import logging
 import models
+import time
 
 jinja_environment = jinja2.Environment(autoescape=True,
 	loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
@@ -19,14 +20,13 @@ class AdminHandler(webapp2.RequestHandler):
 			self.add_result()
 		elif self.request.get('caster'):
 			self.add_caster()
+		time.sleep(2)
+		self.redirect('/admin', 'get')
 
-	def populate_page(self, factions=None, results=None, casters=None):
-		if not factions:
-			factions = models.Faction.query().fetch(100)
-		if not results:
-			results = models.Result.query().fetch(100)
-		if not casters:
-			casters = models.Warcaster.query().fetch(200)
+	def populate_page(self):
+		factions = models.Faction.query().fetch(100)
+		results = models.Result.query().fetch(100)
+		casters = models.Warcaster.query().fetch(200)
 		
 		# TODO this is a bad idea, but will work for now.  learn about KeyProperty
 		for caster in casters:
@@ -40,9 +40,6 @@ class AdminHandler(webapp2.RequestHandler):
 		factionAbbrev = self.request.get('factionAbbrev')
 		faction = models.Faction(name=factionName, abbrev=factionAbbrev)
 		faction.put()
-		factions = models.Faction.query().fetch(100)
-		factions.append(faction)
-		self.populate_page(factions=factions)
 
 	def add_result(self):
 		resultName = self.request.get('resultName')
@@ -52,9 +49,6 @@ class AdminHandler(webapp2.RequestHandler):
 
 		result = models.Result(name=resultName, victory=victory_boolean)
 		result.put()
-		results = models.Result.query().fetch(100)
-		results.append(result)
-		self.populate_page(results=results)
 
 	def add_caster(self):
 		casterName = self.request.get('casterName')
@@ -66,9 +60,6 @@ class AdminHandler(webapp2.RequestHandler):
 				matched_faction = faction
 		caster = models.Warcaster(name=casterName, faction=matched_faction.key)
 		caster.put()
-		casters = models.Warcaster.query().fetch(200)
-		casters.append(caster)
-		self.populate_page(casters=casters)
 
 app = webapp2.WSGIApplication([
 	('/admin', AdminHandler)
