@@ -10,6 +10,7 @@ class Warcaster(ndb.Model):
 
 class Result(ndb.Model):
 	name = ndb.StringProperty()
+	victory = ndb.BooleanProperty()
 
 class Match(ndb.Model):
 	date = ndb.DateProperty()

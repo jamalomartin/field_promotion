@@ -3,29 +3,89 @@
   <head>
       <title>Field Promotion Administration</title>
       <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
   </head>
     <body>
-      <h2>Faction Administration</h2>
-      <table class="table table-striped">
-        <tr>
-            <th width="45%">Faction Name</th>
-            <th width="45%">Faction Abbrev</th>
-            <th width="10%"></th>
-        </tr>
-        {% for faction in factions %}
+      <div class="faction-admin">
+        <h2>Faction Administration</h2>
+        <table class="table table-striped">
           <tr>
-            <th width="45%">{{faction.name}}</th>
-            <th width="45%">{{faction.abbrev}}</th>
-            <th width="10%"></th>
+              <th>Faction Name</th>
+              <th>Faction Abbrev</th>
+              <th></th>
           </tr>
-        {% endfor %}
-        <form method="post">
+          <form method="post">
+              <tr>
+                  <td><input type="text" NAME="factionName" size="40"></td>
+                  <td><input type="text" NAME="factionAbbrev" size="10"></td>
+                  <td><input type="submit" name="faction" value="Add Faction" /></td>
+              </tr>
+          </form>
+          {% for faction in factions %}
             <tr>
-                <td width="45%"><input type="text" NAME="factionName" size="40"></td>
-                <td width="45%"><input type="text" NAME="factionAbbrev" size="10"></td>
-                <td width="10%"><input type="submit" name = "add" value="Add" /></td>
+              <th>{{faction.name}}</th>
+              <th>{{faction.abbrev}}</th>
+              <th></th>
             </tr>
-        </form>
-    </table>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="result-admin">
+        <h2>Result Administration</h2>
+        <table class="table table-striped">
+          <tr>
+              <th>Result Name</th>
+              <th>Victory?</th>
+              <th></th>
+          </tr>
+          <form method="post">
+              <tr>
+                  <td><input type="text" name="resultName" size="40"></td>
+                  <td><input type="checkbox" name="victory" value="true"> Victory?</td>
+                  <td><input type="submit" name="result" value="Add Result" /></td>
+              </tr>
+          </form>
+          {% for result in results %}
+            <tr>
+              <th>{{result.name}}</th>
+              <th>{{result.victory}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="header"><h2>Warcaster/Warlock Administration</h2></div>
+        <div class="caster-admin">
+          <table class="table table-striped">
+          <tr>
+              <th>Warcaster Name</th>
+              <th>Faction</th>
+              <th></th>
+          </tr>
+          <form method="post">
+              <tr>
+                  <td><input type="text" name="casterName" size="40"></td>
+                  <td>
+                    <select name="casterFaction">
+                      {% for faction in factions %}
+                      <option value="{{faction.name}}">{{faction.name}}</option>
+                    {% endfor %}
+                    </select>
+                  </td>
+                  <td><input type="submit" name="caster" value="Add Caster" /></td>
+              </tr>
+          </form>
+          {% for caster in casters %}
+            <tr>
+              <th>{{caster.name}}</th>
+              <th>{{caster.factionName}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      </div>
     </body>
 </html>

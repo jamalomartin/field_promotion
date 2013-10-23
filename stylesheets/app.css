@@ -1,4 +1,24 @@
-.add_faction_table {
-	border:1px solid black;
-	text-align: center;
+.header {
+	position: relative;
+	left: 20px;
+}
+
+.faction-admin {
+	position: relative;
+	left: 20px;
+	width: 75%;
+}
+
+.result-admin {
+	position: relative;
+	left: 20px;
+	width: 50%;
+}
+
+.caster-admin {
+	position: relative;
+	left: 20px;
+	width: 75%;
+	height: 600px;
+	overflow: scroll;
 }
