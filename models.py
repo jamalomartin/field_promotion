@@ -11,6 +11,8 @@ class Warcaster(ndb.Model):
 class Result(ndb.Model):
 	name = ndb.StringProperty()
 	victory = ndb.BooleanProperty()
+	draw = ndb.BooleanProperty()
+	teaching = ndb.BooleanProperty()
 
 class Game(ndb.Model):
 	date = ndb.DateProperty(required=True)

@@ -6,6 +6,39 @@
       <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
   </head>
     <body>
+
+<div class="header"><h2>Warcaster/Warlock Administration</h2></div>
+        <div class="caster-admin">
+          <table class="table table-striped">
+          <tr>
+              <th>Warcaster Name</th>
+              <th>Faction</th>
+              <th></th>
+          </tr>
+          <form method="post">
+              <tr>
+                  <td><input type="text" name="casterName" size="40"></td>
+                  <td>
+                    <select name="casterFaction">
+                      {% for faction in factions %}
+                      <option value="{{faction.name}}">{{faction.name}}</option>
+                    {% endfor %}
+                    </select>
+                  </td>
+                  <td><input type="submit" name="caster" value="Add Caster" /></td>
+              </tr>
+          </form>
+          {% for caster in casters %}
+            <tr>
+              <th>{{caster.name}}</th>
+              <th>{{caster.factionName}}</th>
+              <th></th>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      </div>
+      
       <div class="faction-admin">
         <h2>Faction Administration</h2>
         <table class="table table-striped">
@@ -37,12 +70,16 @@
           <tr>
               <th>Result Name</th>
               <th>Victory?</th>
+              <th>Draw?</th>
+              <th>Teaching?</th>
               <th></th>
           </tr>
           <form method="post">
               <tr>
                   <td><input type="text" name="resultName" size="40"></td>
                   <td><input type="checkbox" name="victory" value="true"> Victory?</td>
+                  <td><input type="checkbox" name="draw" value="true"> Draw?</td>
+                  <td><input type="checkbox" name="teaching" value="true"> Teaching?</td>
                   <td><input type="submit" name="result" value="Add Result" /></td>
               </tr>
           </form>
@@ -50,42 +87,12 @@
             <tr>
               <th>{{result.name}}</th>
               <th>{{result.victory}}</th>
+              <th>{{result.draw}}</th>
+              <th>{{result.teaching}}</th>
               <th></th>
             </tr>
           {% endfor %}
         </table>
-      </div>
-
-      <div class="header"><h2>Warcaster/Warlock Administration</h2></div>
-        <div class="caster-admin">
-          <table class="table table-striped">
-          <tr>
-              <th>Warcaster Name</th>
-              <th>Faction</th>
-              <th></th>
-          </tr>
-          <form method="post">
-              <tr>
-                  <td><input type="text" name="casterName" size="40"></td>
-                  <td>
-                    <select name="casterFaction">
-                      {% for faction in factions %}
-                      <option value="{{faction.name}}">{{faction.name}}</option>
-                    {% endfor %}
-                    </select>
-                  </td>
-                  <td><input type="submit" name="caster" value="Add Caster" /></td>
-              </tr>
-          </form>
-          {% for caster in casters %}
-            <tr>
-              <th>{{caster.name}}</th>
-              <th>{{caster.factionName}}</th>
-              <th></th>
-            </tr>
-          {% endfor %}
-        </table>
-      </div>
       </div>
     </body>
 </html>

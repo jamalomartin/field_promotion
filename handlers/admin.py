@@ -24,9 +24,9 @@ class AdminHandler(webapp2.RequestHandler):
 		self.redirect('/admin', 'get')
 
 	def populate_page(self):
-		factions = models.Faction.query().fetch(100)
-		results = models.Result.query().fetch(100)
-		casters = models.Warcaster.query().fetch(200)
+		factions = models.Faction.query().order(models.Faction.name).fetch(100)
+		results = models.Result.query().order(models.Result.name).fetch(100)
+		casters = models.Warcaster.query().order(models.Warcaster.name).fetch(200)
 		
 		# TODO this is a bad idea, but will work for now.  learn about KeyProperty
 		for caster in casters:
@@ -44,10 +44,16 @@ class AdminHandler(webapp2.RequestHandler):
 	def add_result(self):
 		resultName = self.request.get('resultName')
 		victory_boolean = False
+		draw_boolean = False
+		teaching_boolean = False
 		if self.request.get('victory') == 'true':
 			victory_boolean = True
+		if self.request.get('draw') == 'true':
+			draw_boolean = True
+		if self.request.get('teaching') == 'true':
+			teaching_boolean = True
 
-		result = models.Result(name=resultName, victory=victory_boolean)
+		result = models.Result(name=resultName, victory=victory_boolean, draw=draw_boolean, teaching=teaching_boolean)
 		result.put()
 
 	def add_caster(self):

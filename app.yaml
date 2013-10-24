@@ -27,6 +27,7 @@ handlers:
 
 - url: /*
   script: handlers.front_page.app
+  login: required
 
 libraries:
 - name: webapp2

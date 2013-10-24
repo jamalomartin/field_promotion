@@ -2,6 +2,8 @@ import jinja2
 import webapp2
 import os
 import models
+from google.appengine.api import namespace_manager
+from google.appengine.api import users
 from datetime import datetime
 
 jinja_environment = jinja2.Environment(autoescape=True,
@@ -9,13 +11,14 @@ jinja_environment = jinja2.Environment(autoescape=True,
 
 class RecordGameHandler(webapp2.RequestHandler):
     def get(self):
-    	factions = models.Faction.query().fetch(100)
-    	results = models.Result.query().fetch(100)
-    	casters = models.Warcaster.query().fetch(200)
+    	factions = models.Faction.query().order(models.Faction.name).fetch(100)
+    	results = models.Result.query().order(models.Result.name).fetch(100)
+    	casters = models.Warcaster.query().order(models.Warcaster.name).fetch(200)
     	template = jinja_environment.get_template('record.html')
     	self.response.out.write(template.render(factions=factions, results=results, casters=casters))
 
     def post(self):
+        namespace_manager.set_namespace(users.get_current_user().user_id())
     	pointLevel = self.request.get('pointLevel')
     	real_points = int(pointLevel)
     	userCaster = self.request.get('userCaster')
