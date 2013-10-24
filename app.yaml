@@ -14,15 +14,19 @@ handlers:
   upload: favicon\.ico
 
 - url: /record
-  script: record_game.app
+  script: handlers.record_game.app
+  login: required
+
+- url: /view
+  script: handlers.view_game.app
   login: required
 
 - url: /admin
-  script: admin.app
+  script: handlers.admin.app
   login: admin
 
 - url: /*
-  script: main.app
+  script: handlers.front_page.app
 
 libraries:
 - name: webapp2
