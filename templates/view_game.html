@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Field Promotion Game Viewing</title>
+      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
+  </head>
+    <body>
+      <h2>Game History</h2>
+      <div class="game-history">
+        <table class="table table-striped">
+          <tr>
+              <th>Date</th>
+              <th>Faction</th>
+              <th>Caster</th>
+              <th>Opponent</th>
+              <th>Opponent Faction</th>
+              <th>Opponent Caster</th>
+              <th>Point Level</th>
+              <th>Result</th>
+            </tr>
+          {% for game in games %}
+            <tr>
+              <th>{{game.date}}</th>
+              <th>{{game.player_faction}}</th>
+              <th>{{game.player_warcaster}}</th>
+              <th>{{game.opponent_name}}</th>
+              <th>{{game.opponent_faction}}</th>
+              <th>{{game.opponent_warcaster}}</th>
+              <th>{{game.size}}</th>
+              <th>{{game.result}}</th>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </body>
+</html>
