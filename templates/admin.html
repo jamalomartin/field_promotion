@@ -11,28 +11,9 @@
 <div class="header"><h2>Warcaster/Warlock Administration</h2></div>
         <div class="caster-admin">
           <table class="table table-striped">
-          <tr>
-              <th>Warcaster Name</th>
-              <th>Faction</th>
-              <th></th>
-          </tr>
-          <form method="post">
-              <tr>
-                  <td><input type="text" name="casterName" size="40"></td>
-                  <td>
-                    <select name="casterFaction">
-                      {% for faction in factions %}
-                      <option value="{{faction.name}}">{{faction.name}}</option>
-                    {% endfor %}
-                    </select>
-                  </td>
-                  <td><input type="submit" name="caster" value="Add Caster" /></td>
-              </tr>
-          </form>
           {% for caster in casters %}
             <tr>
-              <th>{{caster.name}}</th>
-              <th>{{caster.faction_name}}</th>
+              <th>{{caster}}</th>
               <th></th>
             </tr>
           {% endfor %}
@@ -43,22 +24,9 @@
       <div class="faction-admin">
         <h2>Faction Administration</h2>
         <table class="table table-striped">
-          <tr>
-              <th>Faction Name</th>
-              <th>Faction Abbrev</th>
-              <th></th>
-          </tr>
-          <form method="post">
-              <tr>
-                  <td><input type="text" NAME="factionName" size="40"></td>
-                  <td><input type="text" NAME="factionAbbrev" size="10"></td>
-                  <td><input type="submit" name="faction" value="Add Faction" /></td>
-              </tr>
-          </form>
           {% for faction in factions %}
             <tr>
-              <th>{{faction.name}}</th>
-              <th>{{faction.abbrev}}</th>
+              <th>{{faction}}</th>
               <th></th>
             </tr>
           {% endfor %}

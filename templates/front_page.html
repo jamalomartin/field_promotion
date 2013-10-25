@@ -25,11 +25,12 @@
           <td>Record Games</td>
           <td><form method="post"><input class="front-page-button"  type="submit" name="direction" value="Record" /></form></td>
         </tr>
-
+        {% if admin %}
         <tr>
           <td>Administration</td>
           <td><form method="post"><input class="front-page-button"  type="submit" name="direction" value="Admin" /></form></td>
         </tr>
+        {% endif %}
       </table>
   </div>
     </body>
