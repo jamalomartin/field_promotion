@@ -21,7 +21,7 @@
 	              	<td>Your Faction: 
 	              	<td class="record-item"><select id="userFaction" name="userFaction">
 	              	{% for faction in factions %}
-	                <option value="{{faction.name}}">{{faction.name}}</option>
+	                <option value="{{faction}}">{{faction}}</option>
 	                {% endfor %}
 	              </select>
 	              </tr>
@@ -30,7 +30,7 @@
 	              	<td>Your Caster: </td> 
 	              	<td class="record-item"><select id="userCaster" name="userCaster">
 	              	{% for caster in casters %}
-	                <option value="{{caster.name}}">{{caster.name}}</option>
+	                <option value="{{caster}}">{{caster}}</option>
 	                {% endfor %}
 	              </select></td> 
 	              </tr>
@@ -45,7 +45,7 @@
 	              	<td>Opponent Faction: </td> 
 	              	<td class="record-item"><select id="opponentFaction" name="opponentFaction">
 	              	{% for faction in factions %}
-	                <option value="{{faction.name}}">{{faction.name}}</option>
+	                <option value="{{faction}}">{{faction}}</option>
 	                {% endfor %}
 	              </select></td> 
 	              </tr>
@@ -54,7 +54,7 @@
 	              	<td>Opponent Caster: </td> 
 	              	<td class="record-item"><select id="opponentCaster" name="opponentCaster">
 	              	{% for caster in casters %}
-	                <option value="{{caster.name}}">{{caster.name}}</option>
+	                <option value="{{caster}}">{{caster}}</option>
 	                {% endfor %}
 	              </select></td> 
 	              </tr>
