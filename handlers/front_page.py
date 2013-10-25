@@ -2,6 +2,7 @@ import jinja2
 import webapp2
 import os
 import models
+import logging
 from datetime import datetime
 
 jinja_environment = jinja2.Environment(autoescape=True,
@@ -9,6 +10,7 @@ jinja_environment = jinja2.Environment(autoescape=True,
 
 class FrontHandler(webapp2.RequestHandler):
     def get(self):
+        logging.warn(str(self.request.headers['User-Agent']))
         template = jinja_environment.get_template('front_page.html')
         self.response.out.write(template.render())
 
@@ -20,6 +22,8 @@ class FrontHandler(webapp2.RequestHandler):
             self.redirect('/record')
         elif direction == 'Admin':
             self.redirect('/admin')
+        elif direction == 'Search':
+            self.redirect('/search')
 
 app = webapp2.WSGIApplication([
     ('/', FrontHandler)

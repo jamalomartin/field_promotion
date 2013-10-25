@@ -21,6 +21,10 @@ handlers:
   script: handlers.view_game.app
   login: required
 
+- url: /search
+  script: handlers.search.app
+  login: required
+
 - url: /admin
   script: handlers.admin.app
   login: admin

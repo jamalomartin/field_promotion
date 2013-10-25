@@ -24,13 +24,9 @@ class AdminHandler(webapp2.RequestHandler):
 		self.redirect('/admin', 'get')
 
 	def populate_page(self):
-		factions = models.Faction.query().order(models.Faction.name).fetch(100)
-		results = models.Result.query().order(models.Result.name).fetch(100)
-		casters = models.Warcaster.query().order(models.Warcaster.name).fetch(200)
-		
-		# TODO this is a bad idea, but will work for now.  learn about KeyProperty
-		for caster in casters:
-			caster.factionName = caster.faction.get().name
+		factions = models.get_factions()
+		results = models.get_results()
+		casters = models.get_casters()
 
 		template = jinja_environment.get_template('admin.html')
 		self.response.out.write(template.render(factions=factions, results=results, casters=casters))
@@ -46,6 +42,7 @@ class AdminHandler(webapp2.RequestHandler):
 		victory_boolean = False
 		draw_boolean = False
 		teaching_boolean = False
+		
 		if self.request.get('victory') == 'true':
 			victory_boolean = True
 		if self.request.get('draw') == 'true':
@@ -59,12 +56,7 @@ class AdminHandler(webapp2.RequestHandler):
 	def add_caster(self):
 		casterName = self.request.get('casterName')
 		casterFaction = self.request.get('casterFaction')
-		matched_faction = None
-		factions = models.Faction.query().fetch(100)
-		for faction in factions:
-			if faction.name == casterFaction:
-				matched_faction = faction
-		caster = models.Warcaster(name=casterName, faction=matched_faction.key)
+		caster = models.Warcaster(name=casterName, faction_name=casterFaction)
 		caster.put()
 
 app = webapp2.WSGIApplication([
