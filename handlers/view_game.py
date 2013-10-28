@@ -12,7 +12,7 @@ jinja_environment = jinja2.Environment(autoescape=True,
 class ViewHandler(webapp2.RequestHandler):
     def get(self):
     	namespace_manager.set_namespace(users.get_current_user().user_id())
-    	games = models.Game.query().order(models.Game.date).fetch(1000)
+    	games = models.Game.query().order(-models.Game.date).fetch(1000)
         template = jinja_environment.get_template('view_game.html')
         self.response.out.write(template.render(games=games))
 
