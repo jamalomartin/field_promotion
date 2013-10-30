@@ -16,3 +16,7 @@ def get_all_factions():
 		factions.append(faction)
 	factions.sort()
 	return factions
+
+def get_all_results():
+	result_data = json.loads(file('results.json').read())
+	return result_data

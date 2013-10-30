@@ -25,7 +25,7 @@ class AdminHandler(webapp2.RequestHandler):
 	def populate_page(self):
 		casters = data_utils.get_all_casters()
 		factions = data_utils.get_all_factions()
-		results = models.get_results()
+		results = data_utils.get_all_results()
 
 		template = jinja_environment.get_template('admin.html')
 		self.response.out.write(template.render(factions=factions, results=results, casters=casters))

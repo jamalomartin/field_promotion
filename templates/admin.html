@@ -18,19 +18,10 @@
                   <th>Teaching?</th>
                   <th></th>
               </tr>
-              <form method="post">
-                  <tr>
-                      <td><input type="text" name="resultName" size="40"></td>
-                      <td><input type="checkbox" name="victory" value="true"> Victory?</td>
-                      <td><input type="checkbox" name="draw" value="true"> Draw?</td>
-                      <td><input type="checkbox" name="teaching" value="true"> Teaching?</td>
-                      <td><input type="submit" name="result" value="Add Result" /></td>
-                  </tr>
-              </form>
               {% for result in results %}
                 <tr>
                   <th>{{result.name}}</th>
-                  <th>{{result.victory}}</th>
+                  <th>{{result.won}}</th>
                   <th>{{result.draw}}</th>
                   <th>{{result.teaching}}</th>
                   <th></th>
