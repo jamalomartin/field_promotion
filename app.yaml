@@ -9,6 +9,9 @@ handlers:
 - url: /stylesheets
   static_dir: stylesheets
 
+- url: /lib
+  static_dir: lib
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
