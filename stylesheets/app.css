@@ -1,3 +1,7 @@
+h2{
+	margin-left: 50px;
+}
+
 .header {
 	position: relative;
 	left: 20px;
@@ -7,6 +11,12 @@
 	position: relative;
 	left: 20px;
 	width: 75%;
+}
+
+.Game-History-Title,
+.Record-Game-Title,
+.Result-Administration-Title{
+	text-align: center;
 }
 
 .result-admin {
@@ -33,4 +43,8 @@
 
 .front-page-button {
 	width: 63px;
+}
+
+.btn-primary{
+	width: 100px;
 }
