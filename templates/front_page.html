@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=400">
-<html>
-  <head>
-      <title>Field Promotion</title>
-      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
-      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
-  </head>
-    <body>
-      <h2>Field Promotion Options</h2>
+{% extends "base.html" %}
+  {% block content %}
+    <h2>Field Promotion Options</h2>
       <br>
       <div class="table-of-contents">
       <table class="table">
@@ -33,5 +26,4 @@
         {% endif %}
       </table>
   </div>
-    </body>
-</html>
+{% endblock %}

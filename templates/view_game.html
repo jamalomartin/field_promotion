@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=400">
-<html>
-  <head>
-      <title>Field Promotion Game Viewing</title>
-      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
-      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
-  </head>
-    <body>
-      <h2 class="Game-History-Title">Game History</h2>
+
+{% extends "base.html" %}
+  {% block content %}
+    <h2 class="Game-History-Title">Game History</h2>
       <div class="game-history">
         <table class="table table-striped">
           <tr>
@@ -34,5 +28,4 @@
           {% endfor %}
         </table>
       </div>
-    </body>
-</html>
+{% endblock %}

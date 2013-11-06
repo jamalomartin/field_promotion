@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=400">
-<html>
-  <head>
-      <title>Field Promotion Administration</title>
-      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
-      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
-  </head>
-    <body>
-
+{% extends "base.html" %}
+  {% block content %}
     <div class="result-admin">
             <h2 class="Result-Administration-Title">Result Administration</h2>
             <table class="table table-striped">
@@ -54,7 +46,4 @@
           {% endfor %}
         </table>
       </div>
-
-      
-    </body>
-</html>
+{% endblock %}

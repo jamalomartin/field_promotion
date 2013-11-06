@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<meta name="viewport" content="width=400">
-<html>
-  <head>
-      <title>Field Promotion Game Recording</title>
-      <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
-      <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
-  </head>
-    <body>
-      <div class="record-area">
+{% extends "base.html" %}
+  {% block content %}
+    <div class="record-area">
         <h2 class="Record-Game-Title">Record Game Result</h2>
         <table class="table table-striped">
 	        <form method="post">
@@ -80,17 +73,4 @@
           </form>
       	</table>
       </div>
-    </body>
-
-    <script type="text/javascript">
-    $(function () {
-        $("#userFaction").onChange(function (e) {
-            $("#userCaster").empty();
-
-            var options = ['test','stuff'];
-
-            $("#userCaster").append(options);
-        });
-    });
-</script>
-</html>
+{% endblock %}
