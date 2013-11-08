@@ -12,11 +12,8 @@ jinja_environment = jinja2.Environment(autoescape=True,
 
 class RecordGameHandler(webapp2.RequestHandler):
     def get(self):
-    	factions = data_utils.get_all_factions()
-    	results = data_utils.get_all_results()
-    	casters = data_utils.get_all_casters()
     	template = jinja_environment.get_template('record.html')
-    	self.response.out.write(template.render(factions=factions, results=results, casters=casters))
+    	self.response.out.write(template.render())
 
     def post(self):
         namespace_manager.set_namespace(users.get_current_user().user_id())

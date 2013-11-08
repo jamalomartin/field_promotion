@@ -1,5 +1,6 @@
 {% extends "base.html" %}
   {% block content %}
+    <script type="text/javascript" src="js/record.js"></script>
     <div class="record-area">
         <h2 class="Record-Game-Title">Record Game Result</h2>
         <table class="table table-striped">
@@ -13,18 +14,12 @@
 	              <tr>
 	              	<td>Your Faction: 
 	              	<td class="record-item"><select id="userFaction" name="userFaction">
-	              	{% for faction in factions %}
-	                <option value="{{faction}}">{{faction}}</option>
-	                {% endfor %}
 	              </select>
 	              </tr>
 
 	              <tr>
 	              	<td>Your Caster: </td> 
 	              	<td class="record-item"><select id="userCaster" name="userCaster">
-	              	{% for caster in casters %}
-	                <option value="{{caster}}">{{caster}}</option>
-	                {% endfor %}
 	              </select></td> 
 	              </tr>
 
@@ -37,18 +32,12 @@
 	              <tr>
 	              	<td>Opponent Faction: </td> 
 	              	<td class="record-item"><select id="opponentFaction" name="opponentFaction">
-	              	{% for faction in factions %}
-	                <option value="{{faction}}">{{faction}}</option>
-	                {% endfor %}
 	              </select></td> 
 	              </tr>
 
 	              <tr>
 	              	<td>Opponent Caster: </td> 
 	              	<td class="record-item"><select id="opponentCaster" name="opponentCaster">
-	              	{% for caster in casters %}
-	                <option value="{{caster}}">{{caster}}</option>
-	                {% endfor %}
 	              </select></td> 
 	              </tr>
 
@@ -60,10 +49,7 @@
 	              
 	              <tr>
 	              	<td>Result: </td> 
-	              	<td class="record-item"><select name="result">
-	              	{% for result in results %}
-	                <option value="{{result.name}}">{{result.name}}</option>
-	                {% endfor %}
+	              	<td class="record-item"><select id="result" name="result">
 	              </select></td> 
 
 	              <tr>
@@ -73,4 +59,5 @@
           </form>
       	</table>
       </div>
+
 {% endblock %}

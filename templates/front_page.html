@@ -8,22 +8,18 @@
           <td>View Games</td>
           <td><form method="post"><input class="btn btn-primary"  type="submit" name="direction" value="View" /></form></td>
         </tr>
+        
+        <tr>
+          <td>Record Games</td>
+          <td><form method="post"><input class="btn btn-primary"  type="submit" name="direction" value="Record" /></form></td>
+        </tr>
 
         <tr>
           <td>Search Games</td>
           <td><form method="post"><input class="btn btn-primary"  type="submit" name="direction" value="Search" /></form></td>
         </tr>
 
-        <tr>
-          <td>Record Games</td>
-          <td><form method="post"><input class="btn btn-primary"  type="submit" name="direction" value="Record" /></form></td>
-        </tr>
-        {% if admin %}
-        <tr>
-          <td>Administration</td>
-          <td><form method="post"><input class="btn btn-primary"  type="submit" name="direction" value="Admin" /></form></td>
-        </tr>
-        {% endif %}
+        
       </table>
   </div>
 {% endblock %}
