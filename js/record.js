@@ -1,3 +1,10 @@
+$(function datePicker() {
+    $.datepicker.setDefaults(
+      $.extend($.datepicker.regional[""])
+      );
+    $("#datepicker").datepicker();
+});
+
 var loadFactions = function() {
   $('#userFaction').empty();
   $('#opponentFaction').empty();
