@@ -27,7 +27,11 @@ class RecordGameHandler(webapp2.RequestHandler):
     	opponentFaction = self.request.get('opponentFaction')
     	opponentCaster = self.request.get('opponentCaster')
     	date = self.request.get('date')
-    	real_date = datetime.strptime(date,'%m/%d/%Y')
+        logging.error(date);
+        try:
+            real_date = datetime.strptime(date,'%m/%d/%Y')
+        except (ValueError):
+            real_date = datetime.strptime(date,'%Y-%m-%d')
         result = self.request.get('result')
     	result_types = self.get_game_results_from_result_name(result)
         game = models.Game(date=real_date, 

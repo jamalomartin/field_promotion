@@ -1,9 +1,7 @@
-$(function datePicker() {
-    $.datepicker.setDefaults(
-      $.extend($.datepicker.regional[""])
-      );
-    $("#datepicker").datepicker();
-});
+
+var isMobile = function() {
+  return 'ontouchstart' in window;
+};
 
 var loadFactions = function() {
   $('#userFaction').empty();
